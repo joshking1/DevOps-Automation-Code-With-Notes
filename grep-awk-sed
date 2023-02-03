@@ -1,0 +1,30 @@
+# Important Notes 
+
+# SED
+sed (Stream Editor) is a command-line tool for editing files or input streams. It is used to perform operations such as substitution, deletion, and insertion on text.
+
+Here is an example of using sed to substitute all occurrences of the word "old" with the word "new" in a file named file.txt and save the result to a new file named newfile.txt:
+
+# code
+
+# sed 's/old/new/g' file.txt > newfile.txt
+
+# AWK 
+awk is a scripting language used for pattern scanning and processing. It can be used to search for and extract specific data from text files.
+
+Here is an example of using awk to print the second field (column) of each line in a file named file.txt:
+
+# code
+
+# awk '{print $2}' file.txt
+
+# GREP
+grep is a command-line tool used for searching for patterns in files or input streams. It is often used in combination with other tools such as sed and awk to extract specific information from large text files.
+
+Here is an example of using grep to search for all lines containing the word "example" in a file named file.txt and printing the line number along with the line:
+
+# code
+
+# grep -n 'example' file.txt
+
+These are just a few examples of the many things that sed, awk, and grep can do. They are powerful tools for processing text and are widely used in bash scripts for system administration and data processing.

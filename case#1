@@ -1,0 +1,35 @@
+# The customers are complaining that my application loading time is very slow. Meaning, my application is experiencing high latency. 
+# Hypothesis solutions and include a bash script to troubleshoot tThere are several possible causes of high latency in applications, including:
+
+1. Network congestion: This can occur when too much data is being sent over the network, causing delays.
+
+2. Resource contention: This can occur when multiple applications are competing for the same resources, such as CPU, memory, or disk space.
+
+3. Database performance: If your application relies on a database, slow database performance can contribute to high latency.
+
+4. Application code: Inefficient or poorly optimized code can also cause high latency.
+
+To troubleshoot the issue, you can start by gathering information about the system's resource utilization. 
+
+# Here is a bash script that can help you with that:
+
+#!/bin/bash
+
+# Get system information
+echo "System Information:"
+echo "CPU utilization: $(top -bn1 | grep "Cpu(s)" | awk '{print $2 + $4}')%"
+echo "Memory utilization: $(free -m | awk '/Mem:/ {printf("%.2f%"), $3/$2*100}')"
+echo "Disk utilization: $(df -h | awk '/\/$/ {print $5}')"
+
+# Get information about the application's process
+pid=$(pgrep <application_name>)
+echo "Application Information:"
+echo "CPU utilization: $(top -bn1 -p $pid | awk 'NR==3 {print $9}')%"
+echo "Memory utilization: $(top -bn1 -p $pid | awk 'NR==3 {print $10}')%"
+
+# This script retrieves information about the system's overall resource utilization, as well as information specific to your application's process. You can then use this information to identify the source of the high latency and make any necessary changes to improve performance.
+
+
+
+
+
